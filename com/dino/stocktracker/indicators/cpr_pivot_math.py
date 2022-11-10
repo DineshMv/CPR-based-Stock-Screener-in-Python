@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 path = 'D:/Stock_Indicator/com/dino/stocktracker/dataset/'
 
 df1 = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
@@ -51,10 +52,13 @@ def calculate_pivots():
     df2['R3'] = df1['High'] + 2 * (df2['Pivot'] - df1['Low'])
     print(f'Calculating Resistance Values...')
 
+    # Calculate Narrow CPR = (ABS(TC - BC)/close*100): boolean
+    df2['NR-CPR'] = (abs(2 * df2['Pivot'] - 2 * df2['BC']) < 0.003 * df1['Close'])
+    df2.loc[:, 'NR-CPR'] = df2['NR-CPR'].shift(1)
+    df2['NR-CPR'] = df2['NR-CPR'].replace([True, False], ['Yes', 'No'])
+
     result = pd.concat([df1, df2], axis=1, join='inner')
 
     # Export Pivot Data to a new Data Set
     result.to_csv(path + 'stock_pivot_data.csv')
     print(f"Pivot Dataset is downloaded to 'stock_pivot_data.csv'")
-
-# calculate_pivots()
