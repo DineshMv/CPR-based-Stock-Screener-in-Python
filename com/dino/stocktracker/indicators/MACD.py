@@ -1,6 +1,6 @@
 import pandas as pd
 
-idf = pd.read_csv('../dataset/ticker_data.csv', index_col=0, parse_dates=True)
+idf = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
 df = idf.loc['2022-08-01':'2022-10-31', :]
 
 # =======

@@ -1,7 +1,7 @@
-import pandas as pd
 import mplfinance as mpf
+import pandas as pd
 
-price_chart_df = pd.read_csv('../dataset/ticker_data.csv', index_col=0, parse_dates=True)
+price_chart_df = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
 
 
 def add_EMA(price, day):
