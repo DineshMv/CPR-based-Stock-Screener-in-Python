@@ -1,5 +1,3 @@
-import mplfinance as mpf
-
 from com.dino.stocktracker.indicators.MACD import *
 
 fb_green = dict(y1=macd.values, y2=signal.values, where=signal < macd, color="#93c47d", alpha=0.5, interpolate=True)
