@@ -1,10 +1,5 @@
 import numpy as np
 def relative_strength(prices, n=14):
-    """
-    compute the n period relative strength indicator
-    http://stockcharts.com/school/doku.php?id=chart_school:glossary_r#relativestrengthindex
-    http://www.investopedia.com/terms/r/rsi.asp
-    """
     deltas = np.diff(prices)
     seed = deltas[:n + 1]
     up = seed[seed >= 0].sum() / n

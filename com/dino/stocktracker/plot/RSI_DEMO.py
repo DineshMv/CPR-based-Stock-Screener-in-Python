@@ -1,6 +1,7 @@
-import pandas as pd
 import mplfinance as mpf
-import RSI
+import pandas as pd
+
+from com.dino.stocktracker.indicators import RSI
 
 df = pd.read_csv('../dataset/ticker_data.csv', index_col=0, parse_dates=True).iloc[0:100]
 
