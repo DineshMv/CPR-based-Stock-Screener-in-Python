@@ -1,7 +1,6 @@
 import pandas as pd
 
-
-path = 'D:/Stock_Indicator/com/dino/stocktracker/dataset/'
+from com.dino.stocktracker.config import dataset_path
 
 df1 = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
 dt_range = pd.date_range(start="2022-01-01", end="  2022-10-31")
@@ -60,5 +59,5 @@ def calculate_pivots():
     result = pd.concat([df1, df2], axis=1, join='inner')
 
     # Export Pivot Data to a new Data Set
-    result.to_csv(path + 'stock_pivot_data.csv')
+    result.to_csv(dataset_path + 'stock_pivot_data.csv')
     print(f"Pivot Dataset is downloaded to 'stock_pivot_data.csv'")
