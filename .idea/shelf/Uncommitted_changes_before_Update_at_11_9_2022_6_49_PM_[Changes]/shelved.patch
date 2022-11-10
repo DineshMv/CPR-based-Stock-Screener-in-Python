@@ -1,0 +1,19 @@
+Index: com/dino/stocktracker/indicators/CPR_Plot.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/com/dino/stocktracker/indicators/CPR_Plot.py b/com/dino/stocktracker/plot/CPR_Plot.py
+rename from com/dino/stocktracker/indicators/CPR_Plot.py
+rename to com/dino/stocktracker/plot/CPR_Plot.py
+--- a/com/dino/stocktracker/indicators/CPR_Plot.py	(revision b2c39c2c8417c74c1c7b5044b64ccd1009a6afc3)
++++ b/com/dino/stocktracker/plot/CPR_Plot.py	(date 1668041246584)
+@@ -2,7 +2,7 @@
+ import pandas as pd
+ 
+ idf = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
+-df = idf.loc['2022-7-01':'2022-10-31', :]
++df = idf.loc['2022-7-01':'2022-10-31']
+ 
+ apd = mpf.make_addplot(df, color='Black', width=0.5, ylim=(10, 80), secondary_y=True)
+ 
