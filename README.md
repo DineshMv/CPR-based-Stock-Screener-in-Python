@@ -25,17 +25,17 @@ Major Strategies that are best in practise are:
 	
 # Formulae:
 
-# Central Pivots:
+**Central Pivots:**
 - pivot = (high + low + close) /3
 - BC = (high + low) / 2
 - TC = (pivot - BC) + pivot
 
-# 3  Support levels
+**3  Support levels:**
 - S1 = (pivot * 2) - high
 - S2 = pivot - (high - low)
 - S3 = low - 2 * (high - pivot)
 
-# 3 Resistance levels
+**3 Resistance levels:**
 - R1 = (pivot * 2) - low
 - R2 = pivot + (high - low)
 - R3 = high + 2 * (pivot-low)
