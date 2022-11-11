@@ -3,7 +3,8 @@
 In this repo, I created Stock Tracker app based on indicator - Central Pivot Range(CPR)
 
 **Technical Indicator - over view:**
-**Central Pivot Range** Indicator is a powerful price action leading indicator. The range acts as major support or resistance for every stock. Anyone can forecast the trend of any stock, whether it will be bullish, bearish or sideways, by looking at the width of the CPR.
+
+	Central Pivot Range Indicator is a powerful price action leading indicator. The range acts as major support or resistance for every stock. Anyone can forecast the trend of any stock, whether it will be bullish, bearish or sideways, by looking at the width of the CPR.
 
 Major Strategies that are best in practise are: 
 
@@ -22,24 +23,24 @@ Major Strategies that are best in practise are:
 2. **Virgin CPR**:
 	A virgin CPR occurs when all the candles on a trading session have closed either upside or downside of the CPR, and none of the candles closed at the CPR. A Virgin CPR acts as very strong support and resistance for next few subsequent trading sessions.
 	
-# ******************Formulae**************************
-# central pivot range
-# pivot = (high + low + close) /3
-# BC = (high + low) / 2
-# TC = (pivot - BC) + pivot
+# Formulae:
+
+# Central Pivots:
+- pivot = (high + low + close) /3
+- BC = (high + low) / 2
+- TC = (pivot - BC) + pivot
 
 # 3  Support levels
-# S1 = (pivot * 2) - high
-# S2 = pivot - (high - low)
-# S3 = low - 2 * (high - pivot)
+- S1 = (pivot * 2) - high
+- S2 = pivot - (high - low)
+- S3 = low - 2 * (high - pivot)
 
 # 3 Resistance levels
-# R1 = (pivot * 2) - low
-# R2 = pivot + (high - low)
-# R3 = high + 2 * (pivot-low)
+- R1 = (pivot * 2) - low
+- R2 = pivot + (high - low)
+- R3 = high + 2 * (pivot-low)
 
 **Formula for NRCPR = 2*(Pivot - BC)<0.0015*close**
-
 
 Libraries used:
 - pathlib
