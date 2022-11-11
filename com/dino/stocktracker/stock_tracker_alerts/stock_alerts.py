@@ -17,10 +17,6 @@ email_list = mail_list
 
 pwd = my_pwd
 
-# dateTimeObj = datetime.now()
-# timestampStr = dateTimeObj.strftime("%d-%b-%Y (%H:%M)")
-# print('Current Timestamp : ', timestampStr)
-
 # subject of email
 subject = 'Narrow CPR Stock Alert: '
 
@@ -35,7 +31,7 @@ def send_emails(email_list):
         
         Greetings for the day!
                 
-        Narrow CPR data has been generated for the stocks and attached here!
+        Narrow CPR data has been generated for the stocks and attached here! 
         
         Thanks,
         MyPy Bot
@@ -51,7 +47,7 @@ def send_emails(email_list):
         msg.attach(MIMEText(body, 'plain'))
 
         # Define the file to attach
-        filename = "nrcpr.csv"
+        filename = "Narrow_CPR.csv"
         print(filename)
 
         # Open the file in python as a binary

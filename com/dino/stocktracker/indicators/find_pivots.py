@@ -1,11 +1,13 @@
 import pandas as pd
 
-from com.dino.stocktracker.config import dataset_path
+from com.dino.stocktracker.config import *
 
-df1 = pd.read_csv('../dataset/stock_data.csv', index_col=0, parse_dates=True)
-dt_range = pd.date_range(start="2022-01-01", end="  2022-10-31")
+df1 = pd.read_csv(dataset_path + 'stock_data.csv', index_col=0, parse_dates=True)
+dt_range = pd.date_range(start=start_date, end=end_date)
 df1 = df1[df1.index.isin(dt_range)]
 
+df1.set_index('Ticker', inplace=True)
+# df1 = df1.reset_index(drop=True)
 df2 = pd.DataFrame()
 
 
@@ -53,11 +55,13 @@ def calculate_pivots():
 
     # Calculate Narrow CPR = (ABS(TC - BC)/close*100): boolean
     df2['NR-CPR'] = (abs(2 * df2['Pivot'] - 2 * df2['BC']) < 0.003 * df1['Close'])
-    df2.loc[:, 'NR-CPR'] = df2['NR-CPR'].shift(1)
+    # df2.loc[:, 'NR-CPR'] = df2['NR-CPR'].shift(1)
     df2['NR-CPR'] = df2['NR-CPR'].replace([True, False], ['Yes', 'No'])
 
     result = pd.concat([df1, df2], axis=1, join='inner')
 
     # Export Pivot Data to a new Data Set
-    result.to_csv(dataset_path + 'stock_pivot_data.csv')
-    print(f"Pivot Dataset is downloaded to 'stock_pivot_data.csv'")
+    result.to_csv(dataset_path + 'stock_data.csv')
+    print(f"Pivot Dataset is downloaded to 'stock_data.csv'")
+
+# calculate_pivots()
