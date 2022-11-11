@@ -4,7 +4,7 @@ In this repo, I created Stock Tracker app based on indicator - Central Pivot Ran
 
 **Technical Indicator - over view:**
 
-	Central Pivot Range Indicator is a powerful price action leading indicator. The range acts as major support or resistance for every stock. Anyone can forecast the trend of any stock, whether it will be bullish, bearish or sideways, by looking at the width of the CPR.
+Central Pivot Range Indicator is a powerful price action leading indicator. The range acts as major support or resistance for every stock. Anyone can forecast the trend of any stock, whether it will be bullish, bearish or sideways, by looking at the width of the CPR.
 
 Major Strategies that are best in practise are: 
 
