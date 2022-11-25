@@ -4,22 +4,26 @@ import pandas as pd
 
 from com.dino.stocktracker.config import dataset_path
 
-df = pd.read_csv(dataset_path + 'stock_data.csv', index_col=0, parse_dates=True)
-
-df2 = pd.DataFrame()
-
 
 def find_narrow_cpr():
+    df = pd.read_csv(dataset_path + 'stock_data.csv', index_col=0, parse_dates=True)
+    df1 = pd.DataFrame()
     file = pathlib.Path(dataset_path + 'stock_data.csv')
 
     if file.exists():
-        print(f"Reading from file 'stock_data.csv'...")
-        # Filter for only days with Narrow Range CPR
-        df2 = df[df['NR-CPR'].str.contains('Yes')]
-        df2.to_csv(dataset_path + 'Narrow_CPR.csv')
-        print(f"Stock Tracker has been downloaded to 'Narrow_CPR.csv'")
+        user_inp1 = int(
+            input(
+                f"Shelbot\U0001F607: Do you want to filter Narrow range stocks from the entire dataset? \n 1. 'Yes'  or 2. 'No' \n"))
+
+        if user_inp1 == 1:
+            print(f"Shelbot\U0001F607: Reading from file 'stock_data.csv'...")
+            # Filter for only days with Narrow Range CPR
+            df1 = df[df['NR-CPR'].str.contains('Yes')]
+            df1.to_csv(dataset_path + 'Narrow_CPR.csv')
+            print(f"Shelbot\U0001F607: Stock Tracker has been downloaded to 'Narrow_CPR.csv'")
+        else:
+            print(f'Shelbot\U0001F607: You chose not to filter the stocks')
     else:
-        print(f'Pivots are not generated yet!')
-
-
-find_narrow_cpr()
+        print(f'Shelbot\U0001F607: Pivots are not generated yet!')
+    print(f'________________________________________________________________________________')
+# find_narrow_cpr()

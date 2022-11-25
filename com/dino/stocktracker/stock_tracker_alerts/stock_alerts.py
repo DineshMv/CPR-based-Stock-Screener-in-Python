@@ -1,3 +1,4 @@
+import pathlib
 import smtplib
 from email import encoders
 from email.mime.base import MIMEBase
@@ -34,7 +35,7 @@ def send_emails(email_list):
         Narrow CPR data has been generated for the stocks and attached here! 
         
         Thanks,
-        MyPy Bot
+        Shelbot\U0001F607
         """
 
         # make a MIME object to define parts of the email
@@ -48,7 +49,6 @@ def send_emails(email_list):
 
         # Define the file to attach
         filename = "Narrow_CPR.csv"
-        print(filename)
 
         # Open the file in python as a binary
         attachment = open(dataset_path + filename, 'rb')
@@ -64,17 +64,16 @@ def send_emails(email_list):
         text = msg.as_string()
 
         # Connect with the server
-        print("Connecting to server...")
+        # print("Connecting to server...")
         TIE_server = smtplib.SMTP(smtp_server, smtp_port)
         TIE_server.starttls()
         TIE_server.login(email_from, pwd)
-        print("Successfully connected to server")
-        print()
+        print("Server Status: Connected")
 
         # Send emails to "person" as list is iterated
-        print(f"Sending email to: {person}...")
+        print(f"Shelbot\U0001F607: I am sending email to: {person}...")
         TIE_server.sendmail(email_from, person, text)
-        print(f"Email sent to: {person}")
+        print(f"Shelbot\U0001F607: Email sent to: {person}")
         print()
 
     # Close the port
@@ -82,4 +81,20 @@ def send_emails(email_list):
 
 
 # Run the function
-send_emails(email_list)
+# send_emails(email_list)
+
+def send_alerts():
+    file = pathlib.Path(dataset_path + 'Narrow_CPR.csv')
+
+    if file.exists():
+        user_inp1 = int(input(
+            f"Shelbot\U0001F607: Do you want to send an email alert with this stock tracker? \n 1. 'Yes'  or 2. 'No' \n"))
+
+        if user_inp1 == 1:
+            send_emails(email_list)
+        elif user_inp1 == 2:
+            print(f'Shelbot\U0001F607: You chose not to send email alerts')
+    else:
+        print(f"Shelbot\U0001F607: Please prepare stock screener from the initial dataset first...!")
+    print(f'________________________________________________________________________________')
+# send_alerts()

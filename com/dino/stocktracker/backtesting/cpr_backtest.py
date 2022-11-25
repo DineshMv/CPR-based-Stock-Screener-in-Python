@@ -7,8 +7,7 @@ from com.dino.stocktracker.config import *
 def get_wkly_data(mylist):
     df_list = list()
     for stocks in mylist:
-        print(f'-------------------------------------------------------------------------------')
-        print(f'Fetching the stock data using yfinance library for: ', stocks)
+        print(f'Shelbot\U0001F607: Fetching the stock data using yfinance library for: ', stocks)
         data = yf.download(stocks, interval='1wk', group_by="Ticker", start=wkly_from_date, end=wkly_to_date)
         data['Ticker'] = stocks
         # added this column because the dataframe doesn't contain a column with the ticker
@@ -53,7 +52,7 @@ def calculate_pivots(mylist):
 
     # Export Pivot Data to a new Data Set
     result.to_csv(dataset_path + 'wkly_dataset.csv')
-    print(f"Weekly Stock - Pivot Data is downloaded to 'wkly_dataset.csv'")
+    print(f"Shelbot\U0001F607: Weekly Stock - Pivot Data is downloaded to 'wkly_dataset.csv'")
     print(f'-------------------------------------------------------------------------------')
 
 
@@ -65,10 +64,12 @@ def get_stats(mylist):
     df1 = df[df['NR-CPR'].str.contains('Yes')]
 
     for stock in mylist:
-        df3 = df1[df1['Ticker'].str.contains(stock)]
-        success_ratio = 100 * len(df3[df3['MomentumType'].str.contains('Strong Momentum')]) / len(df3['MomentumType'])
-        failed_ratio = 100 * len(df3[df3['MomentumType'].str.contains('Less Momentum')]) / len(df3['MomentumType'])
-        print(f'Success ratio for {stock}: {success_ratio}% & Failed ratio for {stock}: {failed_ratio}%')
-        print(f"Total momentum days: {len(df3['MomentumType'])}")
+        df2 = df1[df1['Ticker'].str.contains(stock)]
+        success_ratio = 100 * len(df2[df2['MomentumType'].str.contains('Strong Momentum')]) / len(df2['MomentumType'])
+        success_ratio = round(success_ratio, 2)
+        failed_ratio = 100 * len(df2[df2['MomentumType'].str.contains('Less Momentum')]) / len(df2['MomentumType'])
+        failed_ratio = round(failed_ratio, 2)
+        print(
+            f"Success ratio for {stock}: {success_ratio}% & Failed ratio for {stock}: {failed_ratio}% || Total Momentum days: {len(df2['MomentumType'])}")
 
 # get_stats()

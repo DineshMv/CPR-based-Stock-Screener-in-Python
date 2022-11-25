@@ -5,6 +5,7 @@ mylist = wkly_stock_list
 
 
 def start_backtesting(mylist):
+    # for ticker in mylist:
     from com.dino.stocktracker.backtesting.cpr_backtest import get_wkly_data
     get_wkly_data(mylist)
 
@@ -14,6 +15,7 @@ def start_backtesting(mylist):
     from com.dino.stocktracker.backtesting.cpr_backtest import get_stats
     get_stats(mylist)
 
+# for ticker in mylist:
+#     start_backtesting([ticker])
 
-for ticker in mylist:
-    start_backtesting([ticker])
+# start_backtesting(mylist)
