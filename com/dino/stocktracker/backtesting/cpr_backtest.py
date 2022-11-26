@@ -1,14 +1,14 @@
 import pandas as pd
 import yfinance as yf
 
-from com.dino.stocktracker.config import *
+from com.dino.stocktracker.config import dataset_path
 
 
-def get_wkly_data(mylist):
+def get_wkly_data(mylist, from_date, to_date):
     df_list = list()
     for stocks in mylist:
-        print(f'Shelbot\U0001F607: Fetching the stock data using yfinance library for: ', stocks)
-        data = yf.download(stocks, interval='1wk', group_by="Ticker", start=wkly_from_date, end=wkly_to_date)
+        print(f'Shelbot\U0001F60E: Fetching the stock data using yfinance library for: ', stocks)
+        data = yf.download(stocks, interval='1wk', group_by="Ticker", start=from_date, end=to_date)
         data['Ticker'] = stocks
         # added this column because the dataframe doesn't contain a column with the ticker
         df_list.append(data)
@@ -22,9 +22,9 @@ def get_wkly_data(mylist):
 
 # get_wkly_data()
 
-def calculate_pivots(mylist):
+def calculate_pivots(mylist, from_date, to_date):
     df = pd.read_csv(dataset_path + 'wkly_dataset.csv', index_col=0, parse_dates=True)
-    dt_range = pd.date_range(start=wkly_from_date, end=wkly_to_date)
+    dt_range = pd.date_range(start=from_date, end=to_date)
     df = df[df.index.isin(dt_range)]
     df1 = pd.DataFrame()
 
@@ -52,7 +52,7 @@ def calculate_pivots(mylist):
 
     # Export Pivot Data to a new Data Set
     result.to_csv(dataset_path + 'wkly_dataset.csv')
-    print(f"Shelbot\U0001F607: Weekly Stock - Pivot Data is downloaded to 'wkly_dataset.csv'")
+    print(f"Shelbot\U0001F60E: Weekly Stock - Pivot Data is downloaded to 'wkly_dataset_demo.csv'")
     print(f'-------------------------------------------------------------------------------')
 
 
@@ -69,7 +69,8 @@ def get_stats(mylist):
         success_ratio = round(success_ratio, 2)
         failed_ratio = 100 * len(df2[df2['MomentumType'].str.contains('Less Momentum')]) / len(df2['MomentumType'])
         failed_ratio = round(failed_ratio, 2)
-        print(
-            f"Success ratio for {stock}: {success_ratio}% & Failed ratio for {stock}: {failed_ratio}% || Total Momentum days: {len(df2['MomentumType'])}")
+        print(f"Success ratio for {stock}: {success_ratio}% & Failed ratio for {stock}: {failed_ratio}% || Total "
+              f"Momentum days: {len(df2['MomentumType'])}")
 
 # get_stats()
+

@@ -13,17 +13,17 @@ def find_narrow_cpr():
     if file.exists():
         user_inp1 = int(
             input(
-                f"Shelbot\U0001F607: Do you want to filter Narrow range stocks from the entire dataset? \n 1. 'Yes'  or 2. 'No' \n"))
+                f"Shelbot\U0001F60E: Do you want to filter Narrow range stocks from the entire dataset? \n 1. 'Yes'  or 2. 'No' \n"))
 
         if user_inp1 == 1:
-            print(f"Shelbot\U0001F607: Reading from file 'stock_data.csv'...")
+            print(f"Shelbot\U0001F60E: Reading from file 'stock_data.csv'...")
             # Filter for only days with Narrow Range CPR
             df1 = df[df['NR-CPR'].str.contains('Yes')]
             df1.to_csv(dataset_path + 'Narrow_CPR.csv')
-            print(f"Shelbot\U0001F607: Stock Tracker has been downloaded to 'Narrow_CPR.csv'")
+            print(f"Shelbot\U0001F60E: Stock Tracker has been downloaded to 'Narrow_CPR.csv'")
         else:
-            print(f'Shelbot\U0001F607: You chose not to filter the stocks')
+            print(f'Shelbot\U0001F60E: You chose not to filter the stocks')
     else:
-        print(f'Shelbot\U0001F607: Pivots are not generated yet!')
+        print(f'Shelbot\U0001F60E: Pivots are not generated yet!')
     print(f'________________________________________________________________________________')
 # find_narrow_cpr()

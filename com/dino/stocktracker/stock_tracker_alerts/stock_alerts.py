@@ -35,7 +35,7 @@ def send_emails(email_list):
         Narrow CPR data has been generated for the stocks and attached here! 
         
         Thanks,
-        Shelbot\U0001F607
+        Shelbot\U0001F60E
         """
 
         # make a MIME object to define parts of the email
@@ -71,9 +71,9 @@ def send_emails(email_list):
         print("Server Status: Connected")
 
         # Send emails to "person" as list is iterated
-        print(f"Shelbot\U0001F607: I am sending email to: {person}...")
+        print(f"Shelbot\U0001F60E: I am sending email to: {person}...")
         TIE_server.sendmail(email_from, person, text)
-        print(f"Shelbot\U0001F607: Email sent to: {person}")
+        print(f"Shelbot\U0001F60E: Email sent to: {person}")
         print()
 
     # Close the port
@@ -88,13 +88,13 @@ def send_alerts():
 
     if file.exists():
         user_inp1 = int(input(
-            f"Shelbot\U0001F607: Do you want to send an email alert with this stock tracker? \n 1. 'Yes'  or 2. 'No' \n"))
+            f"Shelbot\U0001F60E: Do you want to send an email alert with this stock tracker? \n 1. 'Yes'  or 2. 'No' \n"))
 
         if user_inp1 == 1:
             send_emails(email_list)
         elif user_inp1 == 2:
-            print(f'Shelbot\U0001F607: You chose not to send email alerts')
+            print(f'Shelbot\U0001F60E: You chose not to send email alerts')
     else:
-        print(f"Shelbot\U0001F607: Please prepare stock screener from the initial dataset first...!")
+        print(f"Shelbot\U0001F60E: Please prepare stock screener from the initial dataset first...!")
     print(f'________________________________________________________________________________')
 # send_alerts()
