@@ -1,7 +1,7 @@
 import pandas as pd
 import yfinance as yf
 
-from com.dino.stocktracker.config import dataset_path
+from config import dataset_path
 
 
 def get_wkly_data(mylist, from_date, to_date):

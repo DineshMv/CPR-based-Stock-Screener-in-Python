@@ -3,7 +3,7 @@ import pathlib
 import pandas as pd
 import yfinance as yf
 
-from com.dino.stocktracker.config import all_mcap_stocks, dataset_path
+from config import dataset_path
 
 # List of Medium to Mega Market Capital stock in NASDAQ, NYSE:
 ticker_strings = []
@@ -66,7 +66,7 @@ def check_initial_dataset(from_date, to_date):
 
 
 def check_pivot_dataset(from_date, to_date):
-    from com.dino.stocktracker.indicators.find_pivots import calculate_pivots
+    from com.dino.stocktracker.Find_pivots.calculate_pivots import calculate_pivots
 
     file = pathlib.Path(dataset_path + 'stock_data.csv')
 

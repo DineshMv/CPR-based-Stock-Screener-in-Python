@@ -1,6 +1,4 @@
 import time
-
-
 class myStockScreener:
     def __init__(self, from_date, to_date, timer):
         self.timer = timer
@@ -8,15 +6,15 @@ class myStockScreener:
         self.to_date = to_date
 
     def start_app(self):
-        from com.dino.stocktracker.dataset.get_dataset import check_initial_dataset, check_pivot_dataset
+        from com.dino.stocktracker.Dataset.get_dataset import check_initial_dataset, check_pivot_dataset
 
         check_initial_dataset(self.from_date, self.to_date)
         check_pivot_dataset(self.from_date, self.to_date)
 
-        from com.dino.stocktracker.indicators.filter_narrow_cpr import find_narrow_cpr
+        from com.dino.stocktracker.Find_pivots.filter_narrow_range import find_narrow_cpr
         find_narrow_cpr()
 
-        from com.dino.stocktracker.stock_tracker_alerts.stock_alerts import send_alerts
+        from com.dino.stocktracker.Mail_alerts.stock_alerts import send_alerts
         send_alerts()
 
     def run(self):
@@ -48,7 +46,7 @@ app.run()
 
 # Backtesting function:
 def perform_backtesting(from_date, to_date):
-    from com.dino.stocktracker.backtesting.backtest import start_backtesting
+    from com.dino.stocktracker.Indicator_backtests.backtest import start_backtesting
     user_inp1 = int(input(
         f"Shelbot\U0001F60E: Do you want to perform backtesting to find Narrow CPR accuracy with Weekly Stock data? "
         f"\n 1. 'Yes'  or 2. 'No' \n"))

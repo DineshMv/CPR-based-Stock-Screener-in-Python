@@ -5,7 +5,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from com.dino.stocktracker.config import *
+from config import *
 
 # Setup port number and server name
 

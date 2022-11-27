@@ -1,6 +1,6 @@
 import pandas as pd
 
-from com.dino.stocktracker.config import dataset_path
+from config import dataset_path
 
 
 # ******************Formulae**************************
