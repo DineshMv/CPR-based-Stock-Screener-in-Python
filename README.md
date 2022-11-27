@@ -7,14 +7,14 @@ I created Stock Tracker app based on leading indicator - Central Pivot Range(CPR
 ## Table of Contents
 
 + [About](#About)
-+ [Central Pivot Range - Overview](#about)
-	+ [Strategies with CPR](#Strategies with CPR)
-		+ [Width of CPR](#Width of CPR)
-		+ [Virgin CPR](#Virgin CPR)
-+ [Pivots Math Formula](#Pivots Math Formula)
-+ [Project Structure](#Project Structure)
-+ [Libraries used](#Libraries used)
-+ [Back Testing Results](#Back Testing Results)
++ [Central Pivot Range - Overview](#CPR_Overview)
+	+ [Strategies with CPR](#Strategies_with_CPR)
+		+ [Width of CPR](#Width_CPR)
+		+ [Virgin CPR](#Virgin_CPR)
++ [Pivots Math Formula](#Pivots_Formula)
++ [Project Structure](#Project_Structure)
++ [Libraries used](#Libraries)
++ [Back Testing Results](#BackTesting_Results)
 + [License](#License)
 
 ## About: <a name = "About"></a>
@@ -27,17 +27,17 @@ I created Stock Tracker app based on leading indicator - Central Pivot Range(CPR
 - We also identified the accuracy of this indicator by comparing the previous momentum on normal days with momentum on
   Narrow Range CPR days.
 
-## Central Pivot Range - Overview: <a name = "Central Pivot Range - Overview"></a>
+## Central Pivot Range - Overview: <a name = "CPR_Overview"></a>
 
 Central Pivot Range Indicator is a powerful price action leading indicator. The range acts as major support or
 resistance for every stock. Anyone can forecast the trend of any stock, whether it will be bullish, bearish or sideways,
 by looking at the width of the CPR.
 
-### Strategies with CPR: <a name = "Strategies with CPR"></a>
+### Strategies with CPR: <a name = "Strategies_with_CPR"></a>
 
 Major Strategies that are in practise with CPR are:
 
-- ### Width of CPR: <a name = "Width of CPR"></a>
+- ### Width of CPR: <a name = "Width_CPR"></a>
   Width of CPR can be categorized into 3 parts:
   1. Narrow Range CPR - NRCPR
   2. Medium Range CPR - MRCPR
@@ -57,7 +57,7 @@ Major Strategies that are in practise with CPR are:
   none of the candles closed at the CPR. A Virgin CPR acts as very strong support and resistance for next few subsequent
   trading sessions.
 
-## Pivots Math Formula: <a name = "Pivots Math Formula"></a>
+## Pivots Math Formula: <a name = "Pivots_Formula"></a>
 
 ```
 	Central Pivots:
@@ -78,7 +78,7 @@ Major Strategies that are in practise with CPR are:
 	Formula for Narrow Range = 2*(Pivot - BC)<0.0015*close
 ```
 
-## Project Structure:<a name = "Project Structure"></a>
+## Project Structure:<a name = "Project_Structure"></a>
 
 ```
 	.
@@ -109,7 +109,7 @@ Major Strategies that are in practise with CPR are:
 
 - Note: config.py is restricted to local as it contains secret credentials
 
-## Libraries used:<a name = "Libraries used"></a>
+## Libraries used:<a name = "Libraries"></a>
 
 - pathlib
 - pandas
@@ -118,7 +118,7 @@ Major Strategies that are in practise with CPR are:
 - smtplib
 - email.mime
 
-## Back Testing Results:<a name = "Back Testing Results"></a>
+## Back Testing Results:<a name = "BackTesting_Results"></a>
 
 - We performed back testing with a list of Top 100 US stocks(as of 11/25/2022) and calculated the accuracy of Narrow CPR
   indicator based on momentum
